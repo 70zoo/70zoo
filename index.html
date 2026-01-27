@@ -5,101 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>70酒 - 70년대생 주당들</title>
     <style>
-        /* 중후하고 술맛 나는 어두운 테마 */
-        body { font-family: 'Malgun Gothic', sans-serif; margin: 0; padding: 0; background-color: #1a1a1a; color: #e0e0e0; }
-        header { background-color: #2c1a1a; padding: 50px 0; text-align: center; border-bottom: 3px solid #d4af37; }
-        header h1 { margin: 0; font-size: 3.5rem; color: #d4af37; letter-spacing: 15px; cursor: pointer; }
-        header p { margin-top: 10px; font-size: 1.1rem; color: #a0a0a0; }
+        /* 밝고 활기찬 '생맥주' 테마 */
+        body { font-family: 'Malgun Gothic', sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
         
-        nav { background-color: #333; display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #444; }
-        nav a { color: #ccc; padding: 15px 30px; text-decoration: none; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        nav a:hover { background-color: #d4af37; color: #1a1a1a; }
-
-        .container { max-width: 900px; margin: 30px auto; padding: 30px; background: #222; min-height: 450px; border-radius: 10px; box-shadow: 0 10px 50px rgba(0,0,0,0.5); border: 1px solid #333; }
+        /* 헤더: 시원한 맥주 황금색 */
+        header { background-color: #f39c12; color: white; padding: 60px 0; text-align: center; border-bottom: 5px solid #e67e22; }
+        header h1 { margin: 0; font-size: 4rem; letter-spacing: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        header p { margin-top: 10px; font-size: 1.2rem; font-weight: bold; color: #fff3e0; }
         
-        .page-content { display: none; }
-        .page-content.active { display: block; animation: fadeIn 0.5s; }
+        /* 네비게이션: 깔끔한 진회색 */
+        nav { background-color: #2c3e50; display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; }
+        nav a { color: white; padding: 18px 30px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a:hover { background-color: #e67e22; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* 안주/술 메뉴 느낌의 멤버 리스트 */
-        .member-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .member-item { background: #2c2c2c; padding: 20px; border-left: 5px solid #d4af37; border-radius: 5px; }
-        .member-item h3 { margin: 0; color: #fff; font-size: 1.2rem; }
-        .member-item p { margin: 5px 0 0; color: #888; font-size: 0.9rem; }
-
-        /* 일정 공지 (칠판 느낌) */
-        .notice-board { background: #1b2e1b; padding: 30px; border: 8px solid #4a3c31; border-radius: 5px; color: #fff; text-align: center; }
+        .container { max-width: 900px; margin: 40px auto; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); border-top: 10px solid #f39c12; }
         
-        footer { text-align: center; padding: 40px; color: #666; font-size: 0.8rem; }
+        /* 모임 안내 섹션 */
+        .info-section { line-height: 1.8; margin-bottom: 40px; }
+        .info-section h2 { color: #d35400; border-bottom: 2px solid #f39c12; padding-bottom: 10px; }
         
-        .main-img { font-size: 5rem; margin-bottom: 20px; display: block; }
+        .rules { background-color: #fffde7; padding: 25px; border-radius: 10px; border-left: 5px solid #fbc02d; margin-top: 20px; }
+        .rules h3 { margin-top: 0; color: #f57f17; }
+        .rules ul { padding-left: 20px; }
+        .rules li { margin-bottom: 10px; font-weight: bold; }
+
+        footer { text-align: center; padding: 40px; color: #95a5a6; font-size: 0.9rem; }
+        .icon { font-size: 4rem; display: block; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-<header onclick="showPage('home')">
+<header>
     <h1>70酒</h1>
-    <p>칠공주: 70년대생 술(酒)로 뭉친 전사들</p>
+    <p>70년대생들의 유쾌한 음주 공간 (70-Zoo)</p>
 </header>
 
 <nav>
-    <a onclick="showPage('home')">대문</a>
-    <a onclick="showPage('members')">주당소개</a>
-    <a onclick="showPage('gallery')">술자리 기록</a>
-    <a onclick="showPage('calendar')">다음 회식</a>
+    <a href="index.html">대문</a>
+    <a href="members.html">주당소개</a>
+    <a href="#">술자리 기록</a>
+    <a href="#">다음 회식</a>
 </nav>
 
 <div class="container">
-    <div id="home" class="page-content active" style="text-align: center;">
-        <span class="main-img">🍶🍻🥃</span>
-        <h2 style="color: #d4af37; font-size: 2rem;">"인생 뭐 있나, 한 잔 하는 거지!"</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8;">
-            오늘도 10km를 달리고 온 건강한 주당부터,<br>
-            안주 빨 세우는 친구까지 모두 환영합니다.
+    <div class="info-section" style="text-align: center;">
+        <span class="icon">🍺🍖🍢</span>
+        <h2>칠공주(70酒) 모임 안내</h2>
+        <p style="font-size: 1.2rem;">
+            저희 70酒는 <strong>70년대생</strong> 친구들이 모여<br>
+            인생의 희로애락을 술(酒) 한 잔에 털어버리는 정겨운 모임입니다.
         </p>
-        <p style="color: #888;">※ 과도한 음주는 무릎 통증에 해롭습니다. (특히 우리 나이엔..)</p>
-    </div>
-
-    <div id="members" class="page-content">
-        <h2 style="color: #d4af37; border-bottom: 1px solid #444; padding-bottom: 10px;">우리 팀 주당들</h2>
-        <div class="member-list">
-            <div class="member-item"><h3>강철무릎 (7X년생)</h3><p>특기: 10km 완주 후 소맥 5잔 원샷</p></div>
-            <div class="member-item"><h3>폭주기관차</h3><p>특기: 안 끊기고 계속 마시기</p></div>
-            <div class="member-item"><h3>안주킬러</h3><p>특기: 술보다 안주 박살내기</p></div>
-            <div class="member-item"><h3>조용한암살자</h3><p>특기: 말없이 마시다 멀쩡히 귀가</p></div>
+        
+        <div class="rules" style="text-align: left;">
+            <h3>※ 우리 모임 행동강령</h3>
+            <ul>
+                <li>첫째, 술은 즐겁게! 억지로 권하지 않는다.</li>
+                <li>둘째, 당구 칠 때는 매너를 지킨다. (기만형 30 배려 필수)</li>
+                <li>셋째, 안주는 넉넉히! 빈속에 마시지 않는다.</li>
+                <li>넷째, 무릎 아픈 회원은 택시비 지원 혹은 상석 배치!</li>
+                <li>다섯째, 집에 갈 때는 웃으면서 서로의 안전을 챙긴다.</li>
+            </ul>
         </div>
     </div>
 
-    <div id="gallery" class="page-content" style="text-align: center;">
-        <h2 style="color: #d4af37;">술자리 기록 (취중진담)</h2>
-        <div style="background: #333; height: 250px; display: flex; align-items: center; justify-content: center; color: #666;">
-            [ 여기에 어제 마신 빈 술병 사진 하나 올리시죠! ]
-        </div>
-    </div>
-
-    <div id="calendar" class="page-content">
-        <div class="notice-board">
-            <h2 style="margin-top: 0; color: #ffeb3b;">★ 긴급 회식 공지 ★</h2>
-            <p style="font-size: 1.3rem;">일시: 이번 주 금요일 저녁 7시</p>
-            <p style="font-size: 1.3rem;">장소: 골목 안쪽 삼겹살집</p>
-            <p style="color: #ffc107;">※ 무릎 아픈 사람은 택시 타고 올 것!</p>
-        </div>
+    <div style="text-align: center; margin-top: 40px; padding: 20px; background: #fdf2e9; border-radius: 10px;">
+        <p style="font-size: 1.1rem; color: #e67e22; font-weight: bold;">
+            "함께 마신 술보다 더 진한 것은 우리의 우정입니다."
+        </p>
     </div>
 </div>
 
 <footer>
-    &copy; 2026 70酒 (70-Generation Liquor Society). 건배!
+    &copy; 2026 70酒 (Seven Princesses Drinking Club). 건배!
 </footer>
-
-<script>
-    function showPage(pageId) {
-        const contents = document.querySelectorAll('.page-content');
-        contents.forEach(content => content.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
-        window.scrollTo(0, 0);
-    }
-</script>
 
 </body>
 </html>
