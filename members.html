@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>70酒 - 주당소개</title>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; margin: 0; padding: 0; background-color: #1a1a1a; color: #e0e0e0; }
+        header { background-color: #2c1a1a; padding: 30px 0; text-align: center; border-bottom: 3px solid #d4af37; }
+        header h1 { margin: 0; color: #d4af37; letter-spacing: 10px; }
+        
+        nav { background-color: #333; display: flex; justify-content: center; padding: 10px; }
+        nav a { color: #ccc; padding: 10px 20px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #d4af37; }
+
+        .container { max-width: 800px; margin: 30px auto; padding: 20px; }
+        .member-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        /* 주당 카드 스타일 */
+        .card { background: #222; border: 1px solid #333; border-left: 5px solid #d4af37; padding: 20px; border-radius: 5px; }
+        .card h2 { margin: 0 0 10px 0; color: #fff; font-size: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 5px; }
+        .card p { margin: 8px 0; font-size: 1.1rem; }
+        .label { color: #d4af37; font-weight: bold; margin-right: 10px; }
+
+        .back-btn { display: block; width: 100px; margin: 30px auto; text-align: center; padding: 10px; background: #d4af37; color: #1a1a1a; text-decoration: none; font-weight: bold; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>70酒 주당소개</h1>
+</header>
+
+<nav>
+    <a href="index.html">홈으로</a>
+</nav>
+
+<div class="container">
+    <div class="member-grid">
+        <div class="card">
+            <h2>영재형</h2>
+            <p><span class="label">당구:</span> 120</p>
+            <p><span class="label">주량:</span> 소주 2병</p>
+        </div>
+
+        <div class="card">
+            <h2>기만형</h2>
+            <p><span class="label">당구:</span> 30</p>
+            <p><span class="label">주량:</span> 소주 1병</p>
+        </div>
+
+        <div class="card">
+            <h2>동석형</h2>
+            <p><span class="label">당구:</span> 150</p>
+            <p><span class="label">주량:</span> 소주 2.5병</p>
+        </div>
+
+        <div class="card">
+            <h2>상권형</h2>
+            <p><span class="label">당구:</span> 120</p>
+            <p><span class="label">주량:</span> 소주 2병</p>
+        </div>
+
+        <div class="card">
+            <h2>인표형</h2>
+            <p><span class="label">당구:</span> 120</p>
+            <p><span class="label">주량:</span> 소주 5병 (대장님!)</p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">돌아가기</a>
+</div>
+
+</body>
+</html>
