@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>70주 - 술자리 기록</title>
+    <title>70주 - 사진첩</title>
     <style>
         body { 
             font-family: 'Malgun Gothic', sans-serif; 
@@ -28,14 +28,14 @@
             border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
         }
         
-        .event-info { background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 8px solid #3498db; margin-bottom: 30px; }
+        .event-section { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px dashed #bdc3c7; }
+        .event-info { background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 8px solid #3498db; margin-bottom: 20px; }
         .event-info h2 { margin: 0 0 10px 0; color: #2c3e50; }
-        .event-info p { margin: 5px 0; font-size: 1.1rem; }
+        .event-info p { margin: 5px 0; line-height: 1.6; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .photo-card { background: white; padding: 10px; border: 1px solid #ddd; border-radius: 10px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .photo-card { background: white; padding: 8px; border: 1px solid #ddd; border-radius: 8px; }
         .photo-card img { width: 100%; height: auto; border-radius: 5px; display: block; }
-        .photo-card p { margin-top: 10px; text-align: center; font-weight: bold; color: #7f8c8d; }
 
         footer { text-align: center; padding: 30px; color: #fff; text-shadow: 1px 1px 2px #000; font-size: 0.9rem; }
     </style>
@@ -43,7 +43,7 @@
 <body>
 
 <header>
-    <h1>70주 술자리 기록</h1>
+    <h1>70주 사진첩</h1>
 </header>
 
 <nav>
@@ -53,36 +53,38 @@
     <a href="#">다음 회식</a>
 </nav>
 
-
 <div class="container">
-    <div class="event-info">
-        <h2>📍 26년 1월 23일 별내 모임</h2>
-        <p><strong>참석:</strong> 당구장(전원 참석), 식사(꾸석지돌판한우 별내점, 영재형 독감으로 인한 불참)</p>
-        <p><strong>내용:</strong> 별내에서 모여 당구 한 게임 치고 맛있게 식사하며 우정을 나눈 날입니다. 영재형이 독감으로 인한 컨디션 난조로 식사를 못하고 가셔서 안타까웠어요. 창밖으로 조용히 눈이 내린 날이었어요.</p>
+    
+    <div class="event-section">
+        <div class="event-info">
+            <h2>📍 26년 1월 23일 별내 모임</h2>
+            <p><strong>참석:</strong> 당구장(전원 참석), 식사(영재형 불참)</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="photo-card"><img src="images/20260123_1.jpg" alt="사진1"></div>
+            <div class="photo-card"><img src="images/20260123_2.jpg" alt="사진2"></div>
+            <div class="photo-card"><img src="images/20260123_3.jpg" alt="사진3"></div>
+        </div>
     </div>
 
-    <div class="gallery-grid">
-        <div class="photo-card">
-            <img src="images/20260123_1.jpg" alt="모임사진1">
-            <p>별내 모임 현장 01</p>
+    <div class="event-section">
+        <div class="event-info">
+            <h2>📍 26년 1월 8일 굽은다리역 모임</h2>
+            <p><strong>참석:</strong> 식사(전주감자탕, 인표회원 불참)</p>
+            <p><strong>내용:</strong> 김정은 선생님 참석. 1차 감자탕, 2차 황제짜장 탕수육 후 우리당구장 이동.</p>
         </div>
-        <div class="photo-card">
-            <img src="images/20260123_2.jpg" alt="모임사진2">
-            <p>별내 모임 현장 02</p>
-        </div>
-        <div class="photo-card">
-            <img src="images/20260123_3.jpg" alt="모임사진3">
-            <p>별내 모임 현장 03</p>
+        <div class="gallery-grid">
+            <div class="photo-card"><img src="images/20260108_1.jpg" alt="사진1"></div>
+            <div class="photo-card"><img src="images/20260108_2.jpg" alt="사진2"></div>
+            <div class="photo-card"><img src="images/20260108_3.jpg" alt="사진3"></div>
         </div>
     </div>
+
 </div>
 
 <footer>
-    &copy; 2026 서울컨벤션고 70酒 모임. All Rights Reserved.
+    &copy; 2026 서울컨벤션고 70酒 모임.
 </footer>
 
 </body>
 </html>
-
-
-
