@@ -24,12 +24,20 @@
         
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
         .photo-card { background: white; padding: 8px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        .photo-card:hover { transform: scale(1.03); }
         .photo-card img { width: 100%; height: auto; border-radius: 5px; display: block; }
 
-        /* --- 사진 크게 보기 팝업 스타일 --- */
-        #modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer; }
-        #modal img { max-width: 90%; max-height: 90%; border: 3px solid white; border-radius: 5px; }
+        /* --- 사진 크게 보기(모달) 강화 --- */
+        #modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+        #modal img { max-width: 90%; max-height: 85%; border: 3px solid white; border-radius: 5px; cursor: default; }
+        
+        /* 우측 상단 닫기 버튼 */
+        .close-btn { 
+            position: absolute; top: 20px; right: 30px; color: white; 
+            font-size: 50px; font-weight: bold; cursor: pointer; 
+            text-shadow: 2px 2px 5px #000;
+        }
+        .close-btn:hover { color: #ccc; }
+
         footer { text-align: center; padding: 30px; color: #fff; text-shadow: 1px 1px 2px #000; }
     </style>
 </head>
@@ -48,8 +56,6 @@
         <div class="event-info">
             <h2>📍 26년 1월 23일 별내 모임</h2>
             <p><strong>참석:</strong> 당구장(전원 참석), 식사(영재형 불참)</p>
-            <p><strong>내용:</strong> 별내로 이동 후 당구 경기. 2차로 식당으로 이동함. 김영재 회원님 컨디션 난조로 인해 귀가하셔서 우울한 식사 자리. 눈이 내리는 낭만적인 자리.</p>
-        </div>
         </div>
         <div class="gallery-grid">
             <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260123_1.jpg"></div>
@@ -75,7 +81,7 @@
         <div class="event-info">
             <h2>📍 26년 1월 2일 별내역 모임</h2>
             <p><strong>참석:</strong> 식사(정동진회정육식당, 전원 참석)</p>
-            <p><strong>내용:</strong> 재단 시무식을 마치고 문덕균 교장선생님과 함께 별내에 모여 즐거운 시간을 가짐.</p>
+            <p><strong>내용:</strong> 시무식을 마치고 문덕균 교장선생님과 함께한 새해 첫 모임.</p>
         </div>
         <div class="gallery-grid">
             <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260102_1.jpg"></div>
@@ -88,21 +94,23 @@
 </div>
 
 <div id="modal" onclick="closePhoto()">
-    <img id="modalImg" src="">
-</div>
+    <span class="close-btn">&times;</span> <img id="modalImg" src="" onclick="event.stopPropagation()"> </div>
 
 <script>
     function showPhoto(card) {
         var src = card.getElementsByTagName('img')[0].src;
         document.getElementById('modalImg').src = src;
         document.getElementById('modal').style.display = 'flex';
+        // 스크롤 방지
+        document.body.style.overflow = 'hidden';
     }
     function closePhoto() {
         document.getElementById('modal').style.display = 'none';
+        // 스크롤 다시 허용
+        document.body.style.overflow = 'auto';
     }
 </script>
 
-<footer>&copy; 2026 서울컨벤션고 70酒 모임.</footer>
+<footer>&copy; 2026 서울컨벤션고 70주 모임.</footer>
 </body>
 </html>
-
