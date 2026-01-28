@@ -22,21 +22,28 @@
         .event-section { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px dashed #bdc3c7; }
         .event-info { background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 8px solid #3498db; margin-bottom: 20px; }
         
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .photo-card { background: white; padding: 8px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        .photo-card img { width: 100%; height: auto; border-radius: 5px; display: block; }
-
-        /* --- 사진 크게 보기(모달) 강화 --- */
-        #modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-        #modal img { max-width: 90%; max-height: 85%; border: 3px solid white; border-radius: 5px; cursor: default; }
+        /* 사진 그리드 설정 */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
         
-        /* 우측 상단 닫기 버튼 */
-        .close-btn { 
-            position: absolute; top: 20px; right: 30px; color: white; 
-            font-size: 50px; font-weight: bold; cursor: pointer; 
-            text-shadow: 2px 2px 5px #000;
+        /* 사진 카드: 여기서 크기를 강제로 통일합니다 */
+        .photo-card { 
+            background: white; padding: 8px; border: 1px solid #ddd; border-radius: 8px; 
+            cursor: pointer; transition: 0.3s;
+            height: 200px; /* 모든 카드의 높이를 200px로 고정 */
+            overflow: hidden; /* 넘치는 사진은 숨김 */
+            display: flex; align-items: center; justify-content: center;
         }
-        .close-btn:hover { color: #ccc; }
+        .photo-card:hover { transform: scale(1.03); }
+        
+        .photo-card img { 
+            width: 100%; height: 100%; 
+            object-fit: cover; /* 사진 비율을 유지하면서 틀에 꽉 채움 (중요!) */
+            border-radius: 5px;
+        }
+
+        #modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+        #modal img { max-width: 90%; max-height: 85%; border: 3px solid white; border-radius: 5px; }
+        .close-btn { position: absolute; top: 20px; right: 30px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; }
 
         footer { text-align: center; padding: 30px; color: #fff; text-shadow: 1px 1px 2px #000; }
     </style>
@@ -94,19 +101,19 @@
 </div>
 
 <div id="modal" onclick="closePhoto()">
-    <span class="close-btn">&times;</span> <img id="modalImg" src="" onclick="event.stopPropagation()"> </div>
+    <span class="close-btn">&times;</span>
+    <img id="modalImg" src="" onclick="event.stopPropagation()">
+</div>
 
 <script>
     function showPhoto(card) {
         var src = card.getElementsByTagName('img')[0].src;
         document.getElementById('modalImg').src = src;
         document.getElementById('modal').style.display = 'flex';
-        // 스크롤 방지
         document.body.style.overflow = 'hidden';
     }
     function closePhoto() {
         document.getElementById('modal').style.display = 'none';
-        // 스크롤 다시 허용
         document.body.style.overflow = 'auto';
     }
 </script>
