@@ -10,42 +10,32 @@
             margin: 0; padding: 0; 
             background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
                         url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            color: #333;
+            background-size: cover; background-attachment: fixed; background-position: center; color: #333;
         }
         header { background-color: rgba(44, 62, 80, 0.8); color: white; padding: 40px 0; text-align: center; }
         header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 5px; }
-        
         nav { background-color: rgba(52, 73, 94, 0.9); display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: white; padding: 15px 25px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a { color: white; padding: 15px 25px; text-decoration: none; font-weight: bold; }
         nav a:hover { background-color: #2980b9; }
 
-        .container { 
-            max-width: 1000px; margin: 40px auto; padding: 30px; 
-            background: rgba(255, 255, 255, 0.9); 
-            border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-        }
-        
+        .container { max-width: 1000px; margin: 40px auto; padding: 30px; background: rgba(255, 255, 255, 0.9); border-radius: 10px; }
         .event-section { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px dashed #bdc3c7; }
         .event-info { background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 8px solid #3498db; margin-bottom: 20px; }
-        .event-info h2 { margin: 0 0 10px 0; color: #2c3e50; }
-        .event-info p { margin: 5px 0; line-height: 1.6; }
-
+        
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .photo-card { background: white; padding: 8px; border: 1px solid #ddd; border-radius: 8px; }
+        .photo-card { background: white; padding: 8px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .photo-card:hover { transform: scale(1.03); }
         .photo-card img { width: 100%; height: auto; border-radius: 5px; display: block; }
 
-        footer { text-align: center; padding: 30px; color: #fff; text-shadow: 1px 1px 2px #000; font-size: 0.9rem; }
+        /* --- 사진 크게 보기 팝업 스타일 --- */
+        #modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer; }
+        #modal img { max-width: 90%; max-height: 90%; border: 3px solid white; border-radius: 5px; }
+        footer { text-align: center; padding: 30px; color: #fff; text-shadow: 1px 1px 2px #000; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>70주 사진첩</h1>
-</header>
-
+<header><h1>70주 사진첩</h1></header>
 <nav>
     <a href="index.html">대문</a>
     <a href="members.html">주당소개</a>
@@ -54,40 +44,49 @@
 </nav>
 
 <div class="container">
-    
     <div class="event-section">
         <div class="event-info">
             <h2>📍 26년 1월 23일 별내 모임</h2>
-            <p><strong>참석:</strong> 당구장(전원 참석), 식사(꾸석지돌판한우 별내점, 김영재 회원님 불참)</p>
+            <p><strong>참석:</strong> 당구장(전원 참석), 식사(영재형 불참)</p>
             <p><strong>내용:</strong> 별내로 이동 후 당구 경기. 2차로 식당으로 이동함. 김영재 회원님 컨디션 난조로 인해 귀가하셔서 우울한 식사 자리. 눈이 내리는 낭만적인 자리.</p>
         </div>
+        </div>
         <div class="gallery-grid">
-            <div class="photo-card"><img src="images/20260123_1.jpg" alt="사진1"></div>
-            <div class="photo-card"><img src="images/20260123_2.jpg" alt="사진2"></div>
-            <div class="photo-card"><img src="images/20260123_3.jpg" alt="사진3"></div>
+            <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260123_1.jpg"></div>
+            <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260123_2.jpg"></div>
+            <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260123_3.jpg"></div>
         </div>
     </div>
 
     <div class="event-section">
         <div class="event-info">
             <h2>📍 26년 1월 8일 굽은다리역 모임</h2>
-            <p><strong>참석:</strong> 당구장(이인표 회원님 불참), 식사(전주감자탕 굽은다리역, 이인표 회원님 불참)</p>
-            <p><strong>내용:</strong> 김정은 선생님 참석. 1차 감자탕, 2차 황제짜장 탕수육 후 우리당구장 이동.</p>
+            <p><strong>참석:</strong> 식사(전주감자탕, 인표회원 불참)</p>
+            <p><strong>내용:</strong> 김정은 선생님 참석. 1차 감자탕, 2차 황제짜장 후 우리당구장 이동.</p>
         </div>
         <div class="gallery-grid">
-            <div class="photo-card"><img src="images/20260108_1.jpg" alt="사진1"></div>
-            <div class="photo-card"><img src="images/20260108_2.jpg" alt="사진2"></div>
-            <div class="photo-card"><img src="images/20260108_3.jpg" alt="사진3"></div>
+            <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260108_1.jpg"></div>
+            <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260108_2.jpg"></div>
+            <div class="photo-card" onclick="showPhoto(this)"><img src="images/20260108_3.jpg"></div>
         </div>
     </div>
-
 </div>
 
-<footer>
-    &copy; 2026 서울컨벤션고 70酒 모임.
-</footer>
+<div id="modal" onclick="closePhoto()">
+    <img id="modalImg" src="">
+</div>
 
+<script>
+    function showPhoto(card) {
+        var src = card.getElementsByTagName('img')[0].src;
+        document.getElementById('modalImg').src = src;
+        document.getElementById('modal').style.display = 'flex';
+    }
+    function closePhoto() {
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
+
+<footer>&copy; 2026 서울컨벤션고 70酒 모임.</footer>
 </body>
 </html>
-
-
