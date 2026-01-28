@@ -5,60 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>70주 - 주당소개</title>
     <style>
-        /* 대문과 동일한 배경 설정: 여름 하늘과 나무 */
         body { 
             font-family: 'Malgun Gothic', sans-serif; 
             margin: 0; padding: 0; 
             background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
                         url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            color: #333;
+            background-size: cover; background-attachment: fixed; background-position: center; color: #333;
         }
-        
-        /* 대문과 동일한 상단 바 */
         header { background-color: rgba(44, 62, 80, 0.8); color: white; padding: 40px 0; text-align: center; }
         header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 5px; }
-        
-        /* 대문과 동일한 네비게이션 */
         nav { background-color: rgba(52, 73, 94, 0.9); display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: white; padding: 15px 25px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a { color: white; padding: 15px 25px; text-decoration: none; font-weight: bold; }
         nav a:hover { background-color: #2980b9; }
 
-        /* 대문과 동일한 반투명 컨테이너 */
-        .container { 
-            max-width: 800px; margin: 40px auto; padding: 30px; 
-            background: rgba(255, 255, 255, 0.9); 
-            border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-        }
+        .container { max-width: 1000px; margin: 40px auto; padding: 30px; background: rgba(255, 255, 255, 0.9); border-radius: 10px; }
         
-        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 15px; text-align: center; }
-
-        /* 주당 카드 스타일 */
+        /* 주당 카드 레이아웃 */
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .member-card { 
-            background: #fff; 
-            border: 1px solid #ddd; 
-            border-left: 8px solid #3498db; 
-            padding: 20px; 
-            margin-bottom: 15px; 
-            border-radius: 5px;
-            transition: 0.2s;
+            background: white; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid #3498db;
+            text-align: center; padding-bottom: 20px;
         }
-        .member-card:hover { transform: scale(1.02); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .member-card h3 { margin: 0 0 10px 0; color: #2c3e50; font-size: 1.4rem; }
-        .member-card p { margin: 5px 0; font-size: 1.1rem; }
-        .label { font-weight: bold; color: #2980b9; margin-right: 10px; }
+        /* 프로필 이미지 동그랗게 */
+        .member-photo { 
+            width: 150px; height: 150px; border-radius: 50%; 
+            margin: 20px auto; object-fit: cover; border: 4px solid #f8f9fa;
+        }
+        .member-card h3 { margin: 10px 0; color: #2c3e50; font-size: 1.5rem; }
+        .member-card p { margin: 5px 0; color: #7f8c8d; }
+        .label { font-weight: bold; color: #2980b9; }
 
-        footer { text-align: center; padding: 30px; color: #fff; text-shadow: 1px 1px 2px #000; font-size: 0.9rem; }
+        footer { text-align: center; padding: 30px; color: #fff; text-shadow: 1px 1px 2px #000; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>서울컨벤션고 주당들</h1>
-</header>
-
+<header><h1>70주 핵심 멤버</h1></header>
 <nav>
     <a href="index.html">대문</a>
     <a href="members.html">주당소개</a>
@@ -67,45 +50,46 @@
 </nav>
 
 <div class="container">
-    <h2>우리 멤버 현황</h2>
-    
-    <div class="member-card">
-        <h3>김영재 회원님</h3>
-        <p><span class="label">당구:</span> 150</p>
-        <p><span class="label">주량:</span> 소주 2병</p>
-    </div>
+    <div class="member-grid">
+        
+        <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" class="member-photo">
+            <h3>김영재</h3>
+            <p>#샤프한_이미지 #브레인</p>
+            <p><span class="label">당구:</span> 120 / <span class="label">주량:</span> 2병</p>
+        </div>
 
-    <div class="member-card">
-        <h3>정기만 회원님</h3>
-        <p><span class="label">당구:</span> 50</p>
-        <p><span class="label">주량:</span> 소주 1병</p>
-    </div>
+        <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" class="member-photo">
+            <h3>정기만</h3>
+            <p>#수더분한_매력 #분위기메이커</p>
+            <p><span class="label">당구:</span> 30 / <span class="label">주량:</span> 1병</p>
+        </div>
 
-    <div class="member-card">
-        <h3>이동석 회원님</h3>
-        <p><span class="label">당구:</span> 150</p>
-        <p><span class="label">주량:</span> 소주 2.5병</p>
-    </div>
+        <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=300" class="member-photo">
+            <h3>이동석</h3>
+            <p>#귀염상_동안 #반전주량</p>
+            <p><span class="label">당구:</span> 150 / <span class="label">주량:</span> 2.5병</p>
+        </div>
 
-    <div class="member-card">
-        <h3>임상권 회원님</h3>
-        <p><span class="label">당구:</span> 120</p>
-        <p><span class="label">주량:</span> 소주 2병</p>
-    </div>
+        <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300" class="member-photo">
+            <h3>임상권</h3>
+            <p>#미남형 #매너주당</p>
+            <p><span class="label">당구:</span> 120 / <span class="label">주량:</span> 2병</p>
+        </div>
 
-    <div class="member-card">
-        <h3>이인표 회원님</h3>
-        <p><span class="label">당구:</span> 120</p>
-        <p><span class="label">주량:</span> 소주 5병 (우리들의 대장님)</p>
+        <div class="member-card">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300" class="member-photo">
+            <h3>이인표</h3>
+            <p>#넙적한_형님포스 #대장님</p>
+            <p><span class="label">당구:</span> 120 / <span class="label">주량:</span> 5병</p>
+        </div>
+
     </div>
 </div>
 
-<footer>
-    &copy; 2026 서울컨벤션고 70酒 모임. All Rights Reserved.
-</footer>
-
+<footer>&copy; 2026 서울컨벤션고 70주 모임.</footer>
 </body>
 </html>
-
-
-
